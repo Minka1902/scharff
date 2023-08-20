@@ -1,0 +1,15 @@
+{
+  "name": "scharff",
+  "version": "1.0.0",
+  "description": "Logger for outgoing requests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Minka1902/scharff.git"
+  },
+  "author": "Michael Scharff",
+  "license": "ISC"
+}
