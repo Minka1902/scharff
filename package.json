@@ -6,6 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "logger",
+    "request",
+    "outgoing",
+    "fetch",
+    "response",
+    "error",
+    "npm",
+    "scharff",
+    "fetch-inspector",
+    "inspector"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Minka1902/scharff.git"

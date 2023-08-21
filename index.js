@@ -5,8 +5,8 @@ const { removeBaseUrl } = require('./constants/functions');
 module.exports.unregister = fetchIntercept.register({
   request: function (url, config) {
     let tempUrl = url;
-    tempUrl = removeBaseUrl(tempUrl);
     let tempReq = { url };
+    tempUrl = removeBaseUrl(tempUrl);
     if (tempUrl !== url) {
       tempReq.originUrl = tempUrl;
     }
