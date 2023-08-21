@@ -2,7 +2,7 @@ const fetchIntercept = require('fetch-intercept');
 const fs = require('fs');
 const { removeBaseUrl } = require('./constants/functions');
 
-module.exports.scharff = fetchIntercept.register({
+module.exports.unregister = fetchIntercept.register({
   request: function (url, config) {
     let tempUrl = url;
     tempUrl = removeBaseUrl(tempUrl);
