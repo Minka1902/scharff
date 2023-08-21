@@ -11,5 +11,8 @@
     "url": "https://github.com/Minka1902/scharff.git"
   },
   "author": "Michael Scharff",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "fetch-intercept": "^2.4.0"
+  }
 }

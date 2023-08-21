@@ -1,55 +1,53 @@
+const fetchIntercept = require('fetch-intercept');
 const fs = require('fs');
+const { removeBaseUrl } = require('./constants/functions');
 
-module.exports.log = (req) => {
-  fs.readFile('request.log', 'utf-8', function (err, data) {
-    if (err) throw err;
+module.exports.scharff = fetchIntercept.register({
+  request: function (url, config) {
+    let tempUrl = url;
+    tempUrl = removeBaseUrl(tempUrl);
+    let tempReq = { url };
+    if (tempUrl !== url) {
+      tempReq.originUrl = tempUrl;
+    }
+    if (config === undefined) {
+      tempReq.method = 'GET';
+    } else {
+      if (config) {
+        if (config.method) {
+          tempReq.method = config.method;
+        }
+        if (config.headers) {
+          tempReq.headers = config.headers;
+        }
+        if (config.body) {
+          tempReq.body = JSON.parse(config.body);
+        }
+      }
+    }
 
-    let tempRequest = createTempRequest(req);
-
-    const newData = `${data}\n${tempRequest}`;
-
-    fs.writeFile('request.log', newData, 'utf-8', function (err) {
-      if (err) throw err;
+    fs.open('./outgoingRequest.log', 'a', function (e, id) {
+      fs.write(id, JSON.stringify(tempReq) + "\n", null, 'utf8', function () {
+        fs.close(id, function () {
+        });
+      });
     });
-  });
-};
 
-const createTempRequest = (req) => {
-  if (req.hostname) {
-    tempRequest.hostname = req.hostname;
-  }
-  if (req.method) {
-    tempRequest.method = req.method;
-  }
-  if (req.originalUrl) {
-    tempRequest.originalUrl = req.originalUrl;
-  }
-  if (req.ip) {
-    tempRequest.ip = req.ip;
-  }
-  if (req.params !== {}) {
-    tempRequest.params = req.params;
-  }
-  if (req.query !== {}) {
-    tempRequest.query = req.query;
-  }
-  if (req.headers.length > 0) {
-    for (let i = 0; i < req.rawHeaders.length; i += 2) {
-      tempRequest.headers[req.rawHeaders[i]] = req.rawHeaders[i + 1];
-    }
-  }
-  if (req.route) {
-    if (req.route.path) {
-      tempRequest.route.path = req.route.path;
-    }
-    if (req.route.stack.length > 0) {
-      tempRequest.route.stackLength = req.route.stack.length;
-    }
-  }
-  if (req.length > 0) {
-    tempRequest.length = req.length;
-  }
-  if (req.body !== {}) {
-    tempRequest.body = req.body;
-  }
-};
+    return [url, config];
+  },
+
+  // requestError: function (error) {
+  //   // Called when an error occurred during another 'request' interceptor call
+  //   return Promise.reject(error);
+  // },
+
+  // response: function (response) {
+  //   // Modify the response object
+  //   return response;
+  // },
+
+  // responseError: function (error) {
+  //   // Handle an fetch error
+  //   return Promise.reject(error);
+  // }
+});
