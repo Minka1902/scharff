@@ -1,11 +1,24 @@
 const fetchIntercept = require('fetch-intercept');
 const fs = require('fs');
 const { removeBaseUrl } = require('./constants/functions');
+const os = require('os');
 
 module.exports.unregister = fetchIntercept.register({
   request: function (url, config) {
+    const interfaces = os.networkInterfaces();
+    let addresses = [];
     let tempUrl = url;
-    let tempReq = { url };
+    for (let i in interfaces) {
+      for (var i2 in interfaces[i]) {
+        var address = interfaces[i][i2];
+        if (address.family === 'IPv4' && !address.internal) {
+          addresses.push(address.address);
+        }
+      }
+    }
+    let tempReq = { url, ip: addresses[0] };
+    let date = new Date().toLocaleString();
+    tempReq.date = date;
     tempUrl = removeBaseUrl(tempUrl);
     if (tempUrl !== url) {
       tempReq.originUrl = tempUrl;

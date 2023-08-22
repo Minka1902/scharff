@@ -1,6 +1,5 @@
 # Scharff Logger
-This project was created by Michael Scharff for logging purposes.
-The project is using the fetch-intercept NPM package.
+Scharff is a lightweight and versatile Node.js package designed to enhance your application's logging capabilities by seamlessly integrating a powerful outgoing request logger. With Scharff, you can effortlessly gain insights into the interactions your application has with external services, APIs, and resources.
 
 ## Installation
 1) run `npm install scharff`.
@@ -32,8 +31,7 @@ The project is using the fetch-intercept NPM package.
 }
 
 ## Next release
-1) Adding the date and time to the log.
-2) Adding the IP address to the log.
+1) 
 
 ## Future additions
 1) We will add a request error logger.
