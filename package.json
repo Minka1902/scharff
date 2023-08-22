@@ -1,6 +1,6 @@
 {
   "name": "scharff",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Logger for outgoing requests",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "keywords": [
     "logger",
-    "request",
     "outgoing",
-    "fetch",
+    "request",
     "response",
     "error",
-    "npm",
-    "scharff",
+    "fetch",
     "fetch-inspector",
-    "inspector"
+    "inspector",
+    "scharff",
+    "npm"
   ],
   "repository": {
     "type": "git",
