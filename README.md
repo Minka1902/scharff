@@ -33,6 +33,9 @@ Scharff is a lightweight and versatile Node.js package designed to enhance your 
 ## Next release
 1) 
 
+## Requirements
+1) nodejs version >= v18.0.0
+
 ## Future additions
 1) We will add a request error logger.
 2) We will add a response logger.

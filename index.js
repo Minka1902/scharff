@@ -16,7 +16,7 @@ module.exports.unregister = fetchIntercept.register({
         }
       }
     }
-    let tempReq = { url, ip: addresses[0] };
+    let tempReq = { type: 'Outgoing_Request', url, ip: addresses[0] };
     let date = new Date().toLocaleString();
     tempReq.date = date;
     tempUrl = removeBaseUrl(tempUrl);
@@ -39,6 +39,7 @@ module.exports.unregister = fetchIntercept.register({
       }
     }
 
+    console.log(tempReq);
     fs.open('./outgoingRequest.log', 'a', function (e, id) {
       fs.write(id, JSON.stringify(tempReq) + "\n", null, 'utf8', function () {
         fs.close(id, function () {
