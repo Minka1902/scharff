@@ -1,6 +1,6 @@
+const { removeBaseUrl } = require('./constants/functions');
 const fetchIntercept = require('fetch-intercept');
 const fs = require('fs');
-const { removeBaseUrl } = require('./constants/functions');
 const os = require('os');
 
 module.exports.unregister = fetchIntercept.register({
@@ -17,8 +17,7 @@ module.exports.unregister = fetchIntercept.register({
       }
     }
     let tempReq = { type: 'Outgoing_Request', url, ip: addresses[0] };
-    let date = new Date().toLocaleString();
-    tempReq.date = date;
+    tempReq.date = { date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString() };
     tempUrl = removeBaseUrl(tempUrl);
     if (tempUrl !== url) {
       tempReq.originUrl = tempUrl;
@@ -39,7 +38,6 @@ module.exports.unregister = fetchIntercept.register({
       }
     }
 
-    console.log(tempReq);
     fs.open('./outgoingRequest.log', 'a', function (e, id) {
       fs.write(id, JSON.stringify(tempReq) + "\n", null, 'utf8', function () {
         fs.close(id, function () {
@@ -56,7 +54,35 @@ module.exports.unregister = fetchIntercept.register({
   // },
 
   // response: function (response) {
-  //   // Modify the response object
+  //   let tempRes = { incomingTime: new Date() };
+  //   if (response) {
+  //     if (response.status) {
+  //       tempRes.status = { status: response.status, statusText: response.statusText };
+  //     }
+  //     if (response.request) {
+  //       tempRes.request = { method: response.request.method, originalUrl: response.request.url, mode: response.request.mode };
+  //     }
+  //     if (response.type) {
+  //       tempRes.type = response.type;
+  //     }
+  //     if (response.redirected) {
+  //       tempRes.redirected = response.redirected;
+  //     }
+  //     if (response.url) {
+  //       tempRes.url = response.url;
+  //     }
+  //     if (response.ok === true) {
+  //       tempRes.isActive = true;
+  //     } else {
+  //       tempRes.isActive = false;
+  //     }
+  //   }
+  //   fs.open('./incomingResponse.log', 'a', function (e, id) {
+  //     fs.write(id, JSON.stringify(tempRes) + "\n", null, 'utf8', function () {
+  //       fs.close(id, function () {
+  //       });
+  //     });
+  //   });
   //   return response;
   // },
 

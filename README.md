@@ -14,24 +14,28 @@ Scharff is a lightweight and versatile Node.js package designed to enhance your 
 2) In there you can see the fetch requests you sent.
 3) The request will be in the format below:</br>
 {</br>
-&nbsp;&nbsp;&nbsp;&nbsp;    "url":"http://www.example.com/update/ad423kbr1om82hu3d58a73g4",</br>
-&nbsp;&nbsp;&nbsp;&nbsp;    "originUrl":"/update/ad423kbr1om82hu3d58a73g4",</br>
-&nbsp;&nbsp;&nbsp;&nbsp;    "method":"GET",</br>
-&nbsp;&nbsp;&nbsp;&nbsp;    "headers":   </br>
-&nbsp;&nbsp;&nbsp;&nbsp;    {</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        "Content-Type":"application/json",</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        "Access-Control-Allow-Origin":"*"</br>
-&nbsp;&nbsp;&nbsp;&nbsp;    },</br>
-&nbsp;&nbsp;&nbsp;&nbsp;    "body":      </br>
-&nbsp;&nbsp;&nbsp;&nbsp;    {</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        "isActive":true,</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        "status":200,</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        "date":"2023-08-21T11:25:47.023Z"</br>
-&nbsp;&nbsp;&nbsp;&nbsp;    }</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"url":"http://666.777.888.999:3000/update/www.exampe.com",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"ip":"130.130.130.130",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"date":{</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date:"20/20/2020",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:"20:20:20 PM"</br>
+&nbsp;&nbsp;&nbsp;&nbsp;},</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"originUrl":"/update/www.example.com",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"method":"PUT",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"headers":{</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Content-Type":"application/json",</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Access-Control-Allow-Origin":"*"</br>
+&nbsp;&nbsp;&nbsp;&nbsp;},</br>
+&nbsp;&nbsp;&nbsp;&nbsp;"body":{</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"isActive":true,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status":200,</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastChecked":"2020-20-20T20:20:20.200Z"</br>
+&nbsp;&nbsp;&nbsp;&nbsp;}</br>
 }
 
-## Next release
-1) 
+## New in this release
+1) New date log.
+
 
 ## Requirements
 1) nodejs version >= v18.0.0
