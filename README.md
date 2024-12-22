@@ -6,8 +6,8 @@ Scharff is a lightweight and versatile Node.js package designed to enhance your 
 2) fork the git repository `https://github.com/Minka1902/scharff.git`, and place it next to your project.
 
 ## Usage
-1) in your entry point, import unregister from the package: `const { unregister } = require('scharff');`
-2) to stop the logger just run the unregister function: `unregister()`, or `npm uninstall scharff`.
+1) in your entry point, import unregister from the package: `const listen = require('scharff');`
+2) to stop the logger just run the unregister function: `listen()`, or `npm uninstall scharff` in the terminal.
 
 ## What to expect
 1) The package will create a outgoingRequest.log file and start logging the requests to the file.
@@ -34,13 +34,13 @@ Scharff is a lightweight and versatile Node.js package designed to enhance your 
 }
 
 ## New in this release
-1) New date log.
-
+1) Fixed a bug in the installation
 
 ## Requirements
 1) nodejs version >= v18.0.0
 
 ## Future additions
-1) We will add a request error logger.
-2) We will add a response logger.
-3) We will add a response error logger.
+1) Set the log file name
+2) Request error logger
+3) Response logger
+4) Response error logger

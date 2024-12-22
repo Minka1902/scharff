@@ -1,6 +1,6 @@
 {
   "name": "scharff",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Logger for outgoing requests",
   "main": "index.js",
   "scripts": {
