@@ -3,7 +3,7 @@ const fetchIntercept = require('fetch-intercept');
 const fs = require('fs');
 const os = require('os');
 
-module.exports.unregister = fetchIntercept.register({
+const listen = fetchIntercept.register({
   request: function (url, config) {
     const interfaces = os.networkInterfaces();
     let addresses = [];
@@ -91,3 +91,5 @@ module.exports.unregister = fetchIntercept.register({
   //   return Promise.reject(error);
   // }
 });
+
+module.exports = listen;
